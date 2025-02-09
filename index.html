@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Be My Valentine?</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+        background: url("image1.png") no-repeat center center/cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: white;
+      }
+      .container {
+        background: rgba(0, 0, 0, 0.7);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        animation: pulse 1.5s infinite alternate;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.05);
+        }
+      }
+      button {
+        padding: 12px 25px;
+        margin: 15px;
+        font-size: 20px;
+        cursor: pointer;
+        border: none;
+        border-radius: 8px;
+        transition: all 0.3s ease-in-out;
+      }
+      .yes {
+        background: #ff4081;
+        color: white;
+        box-shadow: 0 4px 10px rgba(255, 64, 129, 0.5);
+      }
+      .no {
+        background: #ff1744;
+        color: white;
+        box-shadow: 0 4px 10px rgba(255, 23, 68, 0.5);
+      }
+      .yes:hover,
+      .no:hover {
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="question">Will you be my Valentine as a Friend? ❤️</h1>
+      <button class="yes" onclick="acceptLove()">Yes</button>
+      <button class="no" onclick="askAgain()">No</button>
+    </div>
+    <script>
+      function askAgain() {
+        let question = document.getElementById("question");
+        let messages = [
+          "Are you sure? 🥺",
+          "Think again! 😢",
+          "Please? 🥰",
+          "You might regret saying no! 💔",
+        ];
+        question.innerText =
+          messages[Math.floor(Math.random() * messages.length)];
+      }
+      function acceptLove() {
+        document.querySelector(".container").innerHTML =
+          "<h1>Yay! 💖 Can't wait to celebrate together! 🎉</h1><img src='image.webp' alt='Happy Couple'>";
+      }
+    </script>
+  </body>
+</html>
